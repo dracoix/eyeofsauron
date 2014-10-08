@@ -8,9 +8,13 @@ package whackamole;
 import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import static whackamole.RenderCore.SCREEN_HEIGHT;
+import static whackamole.RenderCore.SCREEN_WIDTH;
 /**
  *
  * @author Expiscor
@@ -27,10 +31,14 @@ public class Whackamole extends Application {
         launch(args);
     }
 
-    @Override
+    @Override 
     public void start(Stage primaryStage) {
         primaryStage.initStyle(StageStyle.UNDECORATED);
+        //primaryStage.setWidth(SCREEN_WIDTH);
+        //primaryStage.setHeight(SCREEN_HEIGHT);
+        primaryStage.centerOnScreen();
         primaryStage.setFullScreen(true);
+
         
         primaryStage.addEventHandler(MouseEvent.MOUSE_MOVED, (MouseEvent t) -> {
             MOVE_X = t.getSceneX();
